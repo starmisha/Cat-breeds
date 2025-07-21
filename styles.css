@@ -1,0 +1,70 @@
+/* Обнуляющие стили */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Базовые стили */
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f9f9f9;
+	padding: 20px;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 30px;
+	padding: 20px 0;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.cat-breed {
+	background-color: #fff;
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cat-breed h2 {
+	color: #2c3e50;
+	margin-bottom: 15px;
+	border-bottom: 2px solid #eee;
+	padding-bottom: 10px;
+}
+
+.cat-breed img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.cat-breed p {
+	margin-bottom: 10px;
+}
+
+footer {
+	text-align: center;
+	margin-top: 30px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
