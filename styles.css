@@ -1,70 +1,171 @@
-/* Обнуляющие стили */
+/* Обнуление и базовые стили */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-/* Базовые стили */
+:root {
+	--primary: #FFD1DC;
+	/* Нежно-розовый */
+	--secondary: #B5EAD7;
+	/* Мятный */
+	--accent: #FFB7B2;
+	/* Персиковый */
+	--text: #5E5E5E;
+	/* Тёмно-серый */
+	--light: #FFF9F4;
+	/* Кремовый */
+	--shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
 body {
-	font-family: Arial, sans-serif;
+	font-family: 'Comic Neue', cursive, sans-serif;
 	line-height: 1.6;
-	color: #333;
-	background-color: #f9f9f9;
-	padding: 20px;
+	color: var(--text);
+	background-color: var(--light);
+	padding: 0;
 }
 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
+/* Меню */
+.navbar {
+	background: linear-gradient(135deg, var(--primary), var(--secondary));
+	padding: 1.2rem 2rem;
+	box-shadow: var(--shadow);
+	position: sticky;
+	top: 0;
+	z-index: 100;
 }
 
+.nav-menu {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	gap: 2rem;
+}
+
+.nav-menu a {
+	color: var(--text);
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1.1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 50px;
+	transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+	transform: translateY(-2px);
+}
+
+/* Шапка */
 header {
 	text-align: center;
-	margin-bottom: 30px;
-	padding: 20px 0;
-	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	padding: 3rem 1rem;
+	background: url('https://placekitten.com/1200/400') center/cover;
+	position: relative;
+	color: white;
+	margin-bottom: 2rem;
+}
+
+header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(181, 234, 215, 0.6);
+}
+
+.header-content {
+	position: relative;
+	z-index: 1;
 }
 
 h1 {
-	color: #333;
-	margin-bottom: 10px;
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Карточки котиков */
+.cat-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 2rem;
+	padding: 0 2rem;
+	margin-bottom: 3rem;
 }
 
 .cat-breed {
-	background-color: #fff;
-	border-radius: 8px;
-	padding: 20px;
-	margin-bottom: 20px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	background: white;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: var(--shadow);
+	transition: transform 0.3s ease;
 }
 
-.cat-breed h2 {
-	color: #2c3e50;
-	margin-bottom: 15px;
-	border-bottom: 2px solid #eee;
-	padding-bottom: 10px;
+.cat-breed:hover {
+	transform: translateY(-10px) scale(1.02);
 }
 
 .cat-breed img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-	margin-bottom: 15px;
-	display: block;
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-bottom: 3px solid var(--accent);
+}
+
+.cat-info {
+	padding: 1.5rem;
+}
+
+.cat-breed h2 {
+	color: var(--text);
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+	position: relative;
+	display: inline-block;
+}
+
+.cat-breed h2::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 50px;
+	height: 3px;
+	background: var(--accent);
 }
 
 .cat-breed p {
-	margin-bottom: 10px;
+	margin-bottom: 0.8rem;
 }
 
+/* Подвал */
 footer {
+	background: linear-gradient(135deg, var(--secondary), var(--primary));
 	text-align: center;
-	margin-top: 30px;
-	padding: 20px;
-	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	padding: 2rem;
+	margin-top: 3rem;
+	color: var(--text);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+	.nav-menu {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+
+	.cat-container {
+		grid-template-columns: 1fr;
+	}
 }
